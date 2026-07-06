@@ -1,0 +1,55 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/recto-opc",
+    "crates/recto-oxml",
+    "crates/recto",
+    "crates/recto-layout",
+    "crates/recto-pdf",
+    "crates/recto-html",
+    "crates/recto-cli",
+    "crates/recto-trace",
+]
+exclude = [
+    "crates/recto-wasm",
+]
+
+[workspace.package]
+version = "0.1.2"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+rust-version = "1.93"
+repository = "https://github.com/yuche/recto"
+homepage = "https://github.com/yuche/recto"
+keywords = ["docx", "word", "pdf", "ooxml", "document"]
+categories = ["parser-implementations", "text-processing"]
+authors = ["yuche"]
+
+[workspace.dependencies]
+# Internal crates
+recto-opc = { path = "crates/recto-opc", version = "0.1.2" }
+recto-oxml = { path = "crates/recto-oxml", version = "0.1.2" }
+recto = { path = "crates/recto", version = "0.1.2" }
+recto-layout = { path = "crates/recto-layout", version = "0.1.2" }
+recto-pdf = { path = "crates/recto-pdf", version = "0.1.2" }
+recto-html = { path = "crates/recto-html", version = "0.1.2" }
+recto-trace = { path = "crates/recto-trace", version = "0.1.2" }
+
+# External dependencies
+zip = "8.1"
+quick-xml = "0.37"
+thiserror = "2"
+fontdb = "0.23"
+rustybuzz = "0.20"
+ttf-parser = "0.25"
+unicode-linebreak = "0.1"
+image = "0.25"
+itoa = "1"
+serde = "1"
+serde_json = "1"
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+strip = "symbols"

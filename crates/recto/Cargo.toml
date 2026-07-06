@@ -1,0 +1,24 @@
+[package]
+name = "recto"
+description = "High-level API for reading, writing, and converting DOCX documents"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+keywords.workspace = true
+categories.workspace = true
+readme = "../../README.md"
+
+[dependencies]
+recto-opc = { workspace = true }
+recto-oxml = { workspace = true }
+recto-layout = { workspace = true }
+recto-pdf = { workspace = true }
+recto-html = { workspace = true }
+thiserror = { workspace = true }
+regex = "1"
+
+[dev-dependencies]
